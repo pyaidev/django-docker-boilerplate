@@ -1,5 +1,5 @@
 django
-psycopg2
+psycopg2-binary
 python-environ
 django-cors-headers
 django-jazzmin
@@ -7,3 +7,4 @@ drf-yasg
 djangorestframework
 django-filter
 pre-commit
+django-axesgit

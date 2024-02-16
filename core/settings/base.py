@@ -42,16 +42,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_yasg",
     "corsheaders",
-    "axes"
-]
-
-
-AUTHENTICATION_BACKENDS = [
-    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
-    'axes.backends.AxesStandaloneBackend',
-
-    # Django ModelBackend is the default authentication backend.
-    'django.contrib.auth.backends.ModelBackend',
 ]
 
 
@@ -85,13 +75,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
-    # AxesMiddleware should be the last middleware in the MIDDLEWARE list.
-    # It only formats user lockout messages and renders Axes lockout responses
-    # on failed user authentication attempts from login views.
-    # If you do not want Axes to override the authentication response
-    # you can skip installing the middleware and use your own views.
-    'axes.middleware.AxesMiddleware',
+
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -153,16 +137,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru"
 
-TIME_ZONE = "Asia/Tashkent"
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "static"
@@ -171,34 +152,6 @@ STATICFILES_DIRS = (BASE_DIR / "staticfiles",)
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# CACHES
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-#         "LOCATION": f"{env.str('REDIS_URL', 'redis://localhost:6379/0')}",
-#         "KEY_PREFIX": "boilerplate",
-#     }
-# }
-
-# CELERY CONFIGURATION
-CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
-CELERY_RESULT_BACKEND = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
-
-CELERY_TIMEZONE = "Asia/Tashkent"
-
-CELERY_TASK_TRACK_STARTED = True
-CELERY_TASK_TIME_LIMIT = 30 * 60
-
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AXES_FAILURE_LIMIT = 3  # Limit login attempts to 5
-AXES_COOLOFF_TIME = 0  # Lock out the user for 1 minute after reaching the limit

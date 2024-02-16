@@ -7,4 +7,3 @@ drf-yasg
 djangorestframework
 django-filter
 pre-commit
-django-axesgit

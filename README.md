@@ -1,4 +1,4 @@
-[# django-boilerplate
+### django-docker-boilerplate
 Boilerplate to create Django projects with Docker, Postgres, and Redis.
 
 ## Requirements
@@ -44,4 +44,5 @@ CELERY_BROKER_URL=redis://localhost:6379
 11. Run `docker-compose down` to stop the containers
 12. Run `docker-compose down -v` to stop the containers and remove the volumes
 13. Run `docker-compose down -v --rmi all` to stop the containers, remove the volumes, and remove the images
+
 

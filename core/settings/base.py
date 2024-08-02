@@ -112,7 +112,6 @@ DATABASES = {
         # "HOST": env.str("DB_HOST"),
         # "PORT": env.str("DB_PORT"),
         # "ATOMIC_REQUESTS": True,
-
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
